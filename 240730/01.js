@@ -20,10 +20,6 @@ function getData(url) {
 }
 
 
-function getDataMiddle() {
-    console.log("언제옴??");
-}
-
 // getData(API_URL), getData(WRONG_URL) 각각 성공과 실패에 대한 처리를 코드작성해주세요.
 // 성공
 getData(API_URL)
@@ -43,5 +39,4 @@ getData(WRONG_URL)
         console.log(error);
     });
     
-    getDataMiddle();
-    
+

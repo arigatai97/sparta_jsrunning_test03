@@ -21,21 +21,19 @@
         },
       };
 
+      // API_URL 과 options를 사용해 fetch 로 API 요청을 한 후,
+      fetch(API_URL, options)
+      .then(async (response) => {
+        const data = await response.json();
+        const catUrl = data[0].url;
+        const imageContainer = document.getElementsByClassName("imageContainer");
+        const imgTag = document.createElement("img");
+        imgTag.src =  `${catUrl}`;
 
-      //API_URL 과 options를 사용해 fetch 로 API 요청을 한 후
-        fetch(API_URL)
-        .then(response => response.json())
-        .then(data =>   {
-          const imgSrc = data[0].url;
-
-        // 해당 데이터를 통해 img 태그를 생성하여 주세요. 
-        const bgImage = document.createElement("img");
-        bgImage.src = `${imgSrc}`;
-        document.getElementById("imageContainer").appendChild(bgImage);
-        }) 
-        .catch(error => console.error("Error:", error));
-
-      // API_URL 과 options를 사용해 fetch 로 API 요청을 한 후, 해당 데이터를 통해 img 태그를 생성하여 주세요.
+        imageContainer.appendChild(imgTag);
+      })
+      .catch(e => console.log(e))
+      //  해당 데이터를 통해 img 태그를 생성하여 주세요.
     
     </script>
   </body>
